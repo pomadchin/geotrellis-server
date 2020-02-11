@@ -189,7 +189,8 @@ lazy val core = project
       mamlJvm,
       simulacrum,
       typesafeLogging,
-      scalatest
+      scalatest,
+      droste
     )
   )
 
