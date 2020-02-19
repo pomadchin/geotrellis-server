@@ -78,11 +78,9 @@ object Render {
     while (counter < (length - 1)) {
       val (currentEdge, nextEdge) = breaks(counter) -> breaks(counter + 1)
       val step = (nextEdge - currentEdge) / lengthBetween
-      val points: List[Double] = if (step == 0) {
-        List.empty[Double]
-      } else {
-        (currentEdge to nextEdge by step).toList
-      }
+      val points: List[Double] =
+        if (step == 0) List.empty[Double]
+        else Range.BigDecimal.inclusive(currentEdge, nextEdge, step).map(_.toDouble).toList
 
       val append = if (counter == 0) points else points.tail
       listBuffer ++= append
